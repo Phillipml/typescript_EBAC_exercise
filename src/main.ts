@@ -19,31 +19,29 @@ function addInvestor(
   const newInvestor = new Investor(name, currentBalance, multiplier);
   investors.push(newInvestor);
 }
-
+const newInvestors = [
+  { name: "Joao", currentBalance: 1000, multiplier: 2.3 },
+  { name: "Maria", currentBalance: 2000, multiplier: 5.4 },
+];
 function greeting(name: string) {
-  console.log("Olá " + name);
+  return "Olá " + name;
 }
 
 function calculateInvestment(currentBalance: number, multiplier: number) {
   return currentBalance * multiplier;
 }
 
-const newInvestors = [
-  { name: "Joao", currentBalance: 1000, multiplier: 2.3 },
-  { name: "Maria", currentBalance: 2000, multiplier: 5.4 },
-];
-
 newInvestors.forEach((newPerson) => {
   investors.push(newPerson);
 });
 
 investors.forEach((n) => {
-  greeting(n.name);
   const predictedInvestment = calculateInvestment(
     n.currentBalance,
     n.multiplier
   );
+  const newInvestorGreeting = greeting(n.name);
   console.log(
-    `A previsão do seu investimento com o multiplicador contratado é de ${predictedInvestment}`
+    `${newInvestorGreeting}! A previsão do seu investimento com o multiplicador contratado é de ${predictedInvestment}`
   );
 });
